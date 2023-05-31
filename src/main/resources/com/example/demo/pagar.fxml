@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Vista.PagarController">
+   <children>
+      <Label layoutX="108.0" layoutY="25.0" prefHeight="38.0" prefWidth="387.0" text="Bienvenido a su interfaz de pago" textFill="#17e404">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="textAreaE" layoutX="122.0" layoutY="149.0" prefHeight="148.0" prefWidth="333.0" />
+      <Button fx:id="aceptar" layoutX="357.0" layoutY="319.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="90.0" text="Pagar" />
+      <Button fx:id="cancelar" layoutX="128.0" layoutY="319.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="99.0" text="Cancelar" />
+      <Text layoutX="122.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Su saldo">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="342.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio del menu " wrappingWidth="119.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Label fx:id="labelSaldo" layoutX="122.0" layoutY="98.0" prefHeight="33.0" prefWidth="90.0" />
+      <Label fx:id="labelPrecio" layoutX="342.0" layoutY="98.0" prefHeight="33.0" prefWidth="90.0" />
+   </children>
+</Pane>
