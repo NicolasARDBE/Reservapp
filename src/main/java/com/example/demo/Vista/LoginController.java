@@ -54,7 +54,7 @@ public class LoginController {
                             if (usuario.getAdminCliente() == 1) {
                                 Parent root = null;
                                 try {
-                                    root = FXMLLoader.load(getClass().getResource("/com/example/demo/pantallaOrdenarPedido1.fxml"));
+                                    root = FXMLLoader.load(getClass().getResource("/com/example/demo/pantallaInicio.fxml"));
                                 } catch (IOException e) {
                                     throw new RuntimeException(e);
                                 }
@@ -81,6 +81,38 @@ public class LoginController {
                 }
             }
         });
+
+        /*if (comprobaciones() == true) {
+            try {
+                if (handleLogin()) {
+                    if (usuario.getAdminCliente() == 1) {
+                        Parent root = null;
+                        try {
+                            root = FXMLLoader.load(getClass().getResource("/com/example/demo/pantallaOrdenarPedido1.fxml"));
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        Scene homeScreenScene = new Scene(root);
+                        Stage window = (Stage) isNomUsuario.getScene().getWindow();
+                        window.setScene(homeScreenScene);
+                        window.show();
+                    } else{
+                        Parent root = null;
+                        try {
+                            root = FXMLLoader.load(getClass().getResource("/com/example/demo/pantallaAnadir.fxml"));
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        Scene homeScreenScene = new Scene(root);
+                        Stage window = (Stage) isNomUsuario.getScene().getWindow();
+                        window.setScene(homeScreenScene);
+                        window.show();
+                    }
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }*/
 
         isBotonRegistro.setOnAction(new EventHandler<ActionEvent>() {
             @Override

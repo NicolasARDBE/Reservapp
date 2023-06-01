@@ -24,7 +24,7 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <Button fx:id="op1BotonIrPagar" layoutX="481.0" layoutY="335.0" mnemonicParsing="false" text="Ir A Pagar" />
+      <Button fx:id="op1BotonIrPagar" layoutX="481.0" layoutY="335.0" mnemonicParsing="false" text="Ordenar" />
       <Button fx:id="op1BotonCancelar" layoutX="46.0" layoutY="335.0" mnemonicParsing="false" text="Cancelar" />
       <ChoiceBox fx:id="op1Menu" layoutX="406.0" layoutY="171.0" prefWidth="150.0" />
       <Text layoutX="460.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">

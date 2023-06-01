@@ -115,7 +115,7 @@ public class OrdenarController_1 {
 
                     Parent root = null;
                     try {
-                        root = FXMLLoader.load(getClass().getResource("/com/example/demo/pagar.fxml"));
+                        root = FXMLLoader.load(getClass().getResource("/com/example/demo/pantallaInicio.fxml"));
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -132,7 +132,7 @@ public class OrdenarController_1 {
             public void handle(ActionEvent event) {
                 Parent root = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/com/example/demo/pantallaLogin.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("/com/example/demo/pantallaInicio.fxml"));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

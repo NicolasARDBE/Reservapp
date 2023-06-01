@@ -5,7 +5,7 @@ import com.example.demo.User.Cliente;
 
 import java.sql.SQLException;
 
-public interface IGuardarCliente {
+public interface    IGuardarCliente {
 
     public boolean guardarCliente(Cliente cliente)throws SQLException;
 

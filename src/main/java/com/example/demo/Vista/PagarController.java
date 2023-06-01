@@ -45,15 +45,6 @@ import javafx.stage.Stage;
         @FXML
         private TextArea textAreaE;
         @FXML
-        private CheckBox nequi;
-
-        @FXML
-        private CheckBox daviplata;
-
-        @FXML
-        private CheckBox bancolombia;
-
-        @FXML
         private Button aceptar;
         @FXML
         private Button cancelar;
@@ -81,7 +72,7 @@ import javafx.stage.Stage;
                 public void handle(ActionEvent event) {
                     Parent root = null;
                     try {
-                        root = FXMLLoader.load(getClass().getResource("/com/example/demo/pantallaOrdenarPedido1.fxml"));
+                        root = FXMLLoader.load(getClass().getResource("/com/example/demo/pantallaInicio.fxml"));
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
