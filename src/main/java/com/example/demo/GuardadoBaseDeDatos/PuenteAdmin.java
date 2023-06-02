@@ -24,19 +24,9 @@ public class PuenteAdmin implements IGuardarAdmin{
             conexion_a_la_base.setString(2, admin.getContrasena());
             conexion_a_la_base.setString(3, "0");
             conexion_a_la_base.executeUpdate();
-            /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Resgistro exitoso");
-            alert.setHeaderText(null);
-            alert.setContentText("Se ha creado correctamente su usuario");
-            alert.showAndWait();*/
             return true;
         } catch (SQLException e) {
             System.out.println("Error al guardar el administrador en la base de datos: " + e.getMessage());
-            /*Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Ocurrió un error al guardar el objeto Administrador");
-            alert.showAndWait();*/
             return false;
         }
     }
