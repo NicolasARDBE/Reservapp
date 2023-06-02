@@ -19,7 +19,7 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Button fx:id="botonPedido" layoutX="169.0" layoutY="324.0" mnemonicParsing="false" text="Ordenar Pedido" />
+      <Button fx:id="botonPedido" layoutX="250.0" layoutY="324.0" mnemonicParsing="false" text="Ordenar Pedido" />
       <Button fx:id="botonSalir" layoutX="35.0" layoutY="324.0" mnemonicParsing="false" text="Salir" />
       <TextArea fx:id="areaInicio" layoutX="161.0" layoutY="84.0" prefHeight="206.0" prefWidth="368.0" />
       <Text layoutX="35.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Su saldo:" wrappingWidth="87.5615234375">
@@ -27,12 +27,13 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Button fx:id="botonPagar" layoutX="355.0" layoutY="324.0" mnemonicParsing="false" text="Pagar Pedido" />
+      <Button fx:id="botonPagar" layoutX="405.0" layoutY="324.0" mnemonicParsing="false" text="Pagar Pedido" />
       <Label fx:id="labelPagar" layoutX="29.0" layoutY="230.0" prefHeight="29.0" prefWidth="88.0" />
       <Text layoutX="40.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A pagar:" wrappingWidth="78.1328125">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
+      <Button fx:id="botonAnadir" layoutX="119.0" layoutY="324.0" mnemonicParsing="false" text="Añadir Saldo" />
    </children>
 </Pane>
