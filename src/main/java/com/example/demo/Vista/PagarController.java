@@ -65,8 +65,19 @@ import javafx.stage.Stage;
                 @Override
                 public void handle(ActionEvent event) {
                     clickenelboton();
+                    Parent root = null;
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("/com/example/demo/pantallaInicio.fxml"));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    Scene homeScreenScene = new Scene(root);
+                    Stage window = (Stage) aceptar.getScene().getWindow();
+                    window.setScene(homeScreenScene);
+                    window.show();
                 }
             });
+
             cancelar.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
@@ -99,5 +110,3 @@ import javafx.stage.Stage;
                 }
             }
         }
-
-

@@ -10,12 +10,12 @@ public class AnadirMenu {
     private CrearConexion conexion;
 
     public AnadirMenu() throws SQLException {
-        this.conexion = new CrearConexion();
+        this.conexion = CrearConexion.getInstance();
         this.conexion.conectar();
     }
     public String guardarMenu(Menu menu) throws SQLException{
         try {
-            PreparedStatement conexion_a_la_base = conexion.getConnection().prepareStatement("INSERT INTO menu(precio, idmenu, restaurante_idrestaurante, nombremenu)VALUES (?,?,?,?)");
+            PreparedStatement conexion_a_la_base = conexion.getInstance().getConnection().prepareStatement("INSERT INTO menu(precio, idmenu, restaurante_idrestaurante, nombremenu)VALUES (?,?,?,?)");
             conexion_a_la_base.setDouble(1, menu.getPrecio());
             conexion_a_la_base.setInt(2, menu.getIdMenu());
             conexion_a_la_base.setInt(3, menu.getRestaurante().getIdRestaurante());

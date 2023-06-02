@@ -32,6 +32,4 @@ public class Cliente extends Usuario{
     public int getAdminCliente(){
         return super.getAdminCliente();
     }
-
-
 }

@@ -28,6 +28,12 @@ public class Usuario {
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
+    public void setAdminCliente(int adminCliente){
+        this.adminCliente = adminCliente;
+    }
+    public void setContrasena(String contrasena){
+        this.contrasena = contrasena;
+    }
 
     public String getContrasena(){
         return contrasena;

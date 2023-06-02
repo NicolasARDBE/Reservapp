@@ -3,11 +3,11 @@ package com.example.demo.OperacionesBDD;
 import java.sql.*;
 
 public class CrearConexion {
+    private static CrearConexion instancia;
     private final String user = "c##Nicolas_R";
     private final String password = "12345";
     private final  String url = "jdbc:oracle:thin:@HP_NR:1521:xe";
     private Connection conn;
-
     public Connection conectar() {
         try {
             conn = DriverManager.getConnection(url, user, password);
@@ -16,6 +16,13 @@ public class CrearConexion {
             System.out.println("Error al conectar a la base de datos: " + e.getMessage());
         }
         return conn;
+    }
+
+    public static synchronized CrearConexion getInstance() {
+        if (instancia == null) {
+            instancia = new CrearConexion();
+        }
+        return instancia;
     }
 
     public void desconectar() {
@@ -33,5 +40,4 @@ public class CrearConexion {
     public PreparedStatement prepareStatement(String query) throws SQLException {
         return conn.prepareStatement(query);
     }
-
 }

@@ -1,7 +1,6 @@
 package com.example.demo.GuardadoBaseDeDatos;
 import java.sql.PreparedStatement;
 
-import com.example.demo.User.Administrador;
 import com.example.demo.User.Cliente;
 import com.example.demo.OperacionesBDD.CrearConexion;
 import javafx.scene.control.Alert;
@@ -73,7 +72,6 @@ public class PuenteCliente implements IGuardarCliente{
     public double retornarSaldo(String nomUsuario, int adminCliente) {
         double saldo = 0.0;
         try {
-
             Statement statement = conexion.conectar().createStatement();
 
             // Consulta SQL para buscar el precio de un menú
@@ -94,16 +92,12 @@ public class PuenteCliente implements IGuardarCliente{
             e.printStackTrace();
         }
         return saldo;
-
     }
 
     @Override
-    public void quitarsaldo(double precio,String nombre,String contrasena,String tipo){
+    public boolean quitarsaldo(double precio,String nombre,String contrasena,String tipo){
         try {
-
             Statement statement = conexion.conectar().createStatement();
-
-
             String sql = "SELECT saldo FROM USUARIO, TARJETACREDITO  WHERE usuario.nombreusuario = TarjetaCredito.usuario_nombreusuario AND usuario.nombreusuario = " +  "'"+  nombre +"'" +" AND usuario.contrasenia = " + "'"+contrasena+"'";
 
             ResultSet resultado = statement.executeQuery(sql);
@@ -111,25 +105,30 @@ public class PuenteCliente implements IGuardarCliente{
             if (resultado.next()) {
                 double saldoActual = resultado.getDouble("saldo");
                 double saldoNuevo = saldoActual - precio;
-                System.out.println("El saldo nuevo es: " + saldoNuevo);
+                if(saldoNuevo<0){
+                    System.out.println("No se permite un saldo negativo");
+                    return false;
+                } else {
+                    System.out.println("El saldo nuevo es: " + saldoNuevo);
 
-                String updateQuery = "UPDATE TarjetaCredito " +
-                        "SET saldo = ? " +
-                        "WHERE usuario_nombreUsuario = (SELECT nombreusuario FROM usuario " +
-                        "WHERE nombreusuario = ? " +
-                        "AND contrasenia = ? " +
-                        "AND admincliente = ?)";
-                PreparedStatement updateStmt = conexion.prepareStatement(updateQuery);
-                updateStmt.setDouble(1, saldoNuevo);
-                updateStmt.setString(2, nombre);
-                updateStmt.setString(3, contrasena);
-                updateStmt.setString(4, tipo);
-                updateStmt.executeUpdate();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Transaccion exitosa");
-                alert.setHeaderText(null);
-                alert.setContentText("Se ha completado la transaccion de manera exitosa su nuevo saldo es: "+saldoNuevo);
-                alert.showAndWait();
+                    String updateQuery = "UPDATE TarjetaCredito " +
+                            "SET saldo = ? " +
+                            "WHERE usuario_nombreUsuario = (SELECT nombreusuario FROM usuario " +
+                            "WHERE nombreusuario = ? " +
+                            "AND contrasenia = ? " +
+                            "AND admincliente = ?)";
+                    PreparedStatement updateStmt = conexion.prepareStatement(updateQuery);
+                    updateStmt.setDouble(1, saldoNuevo);
+                    updateStmt.setString(2, nombre);
+                    updateStmt.setString(3, contrasena);
+                    updateStmt.setString(4, tipo);
+                    updateStmt.executeUpdate();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Transaccion exitosa");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Se ha completado la transaccion de manera exitosa su nuevo saldo es: " + saldoNuevo);
+                    alert.showAndWait();
+                }
             } else {
                 System.out.println("El usuario no existe o la contraseña es incorrecta.");
             }
@@ -144,7 +143,59 @@ public class PuenteCliente implements IGuardarCliente{
             alert.setContentText("Error al realizar la transaccion");
             alert.showAndWait();
         }
+        return true;
+    }
 
+    @Override
+    public void aumentarsaldo(double precio, String nombre, String contrasena, String tipo) {
+        try {
+            Statement statement = conexion.conectar().createStatement();
+            String sql = "SELECT saldo FROM USUARIO, TARJETACREDITO  WHERE usuario.nombreusuario = TarjetaCredito.usuario_nombreusuario AND usuario.nombreusuario = " +  "'"+  nombre +"'" +" AND usuario.contrasenia = " + "'"+contrasena+"'";
+
+            ResultSet resultado = statement.executeQuery(sql);
+
+            if (resultado.next()) {
+                double saldoActual = resultado.getDouble("saldo");
+                double saldoNuevo = saldoActual + precio;
+                if(saldoNuevo<0){
+                    System.out.println("No se permite un saldo negativo");
+
+                } else {
+                    System.out.println("El saldo nuevo es: " + saldoNuevo);
+
+                    String updateQuery = "UPDATE TarjetaCredito " +
+                            "SET saldo = ? " +
+                            "WHERE usuario_nombreUsuario = (SELECT nombreusuario FROM usuario " +
+                            "WHERE nombreusuario = ? " +
+                            "AND contrasenia = ? " +
+                            "AND admincliente = ?)";
+                    PreparedStatement updateStmt = conexion.prepareStatement(updateQuery);
+                    updateStmt.setDouble(1, saldoNuevo);
+updateStmt.setString(2, nombre);
+                    updateStmt.setString(3, contrasena);
+                    updateStmt.setString(4, tipo);
+                    updateStmt.executeUpdate();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Transaccion exitosa");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Se ha completado la transaccion de manera exitosa su nuevo saldo es: " + saldoNuevo);
+                    alert.showAndWait();
+                }
+            } else {
+                System.out.println("El usuario no existe o la contraseña es incorrecta.");
+            }
+
+            // Cierre de la conexión
+            conexion.desconectar();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Error al realizar la transaccion");
+            alert.showAndWait();
+        }
+        return;
     }
 
 }

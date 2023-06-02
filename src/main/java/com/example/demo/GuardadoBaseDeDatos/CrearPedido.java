@@ -30,7 +30,7 @@ public class CrearPedido {
             // Obtenemos el mensaje de la excepción como una cadena
             String errorMessage = sqlEx.getMessage();
             // Devolvemos el mensaje de la excepción como una cadena
-            return "Error al guardar el pedido en la base de datos: " + e.getMessage();
+            return "Error al guardar el pedido en la base de datos: ";// + e.getMessage();
         }
         conexion.desconectar();
         return "Se ha procesado el pedido exitosamente";
