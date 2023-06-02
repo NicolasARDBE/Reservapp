@@ -18,11 +18,8 @@ public class PuenteCliente implements IGuardarCliente{
         this.conexion.conectar();
     }
 
-
-
     @Override
     public boolean guardarCliente(Cliente client) throws SQLException{
-
             try {
                 PreparedStatement conexion_a_la_base = conexion.getConnection().prepareStatement("INSERT INTO usuario(nombreusuario, contrasenia,adminCliente)VALUES (?,?,?)");
                 conexion_a_la_base.setString(1, client.getNombre());

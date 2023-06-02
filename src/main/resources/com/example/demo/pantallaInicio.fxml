@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Vista.inicioController">
+   <children>
+      <Text layoutX="195.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pantalla de Inicio">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
+      <Label fx:id="labelNombre" layoutX="35.0" layoutY="79.0" prefHeight="29.0" prefWidth="126.0" />
+      <Label fx:id="labelSaldo" layoutX="35.0" layoutY="137.0" prefHeight="29.0" prefWidth="88.0" />
+      <Text layoutX="35.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenido" wrappingWidth="87.5615234375">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="botonPedido" layoutX="169.0" layoutY="324.0" mnemonicParsing="false" text="Ordenar Pedido" />
+      <Button fx:id="botonSalir" layoutX="35.0" layoutY="324.0" mnemonicParsing="false" text="Salir" />
+      <TextArea fx:id="areaInicio" layoutX="161.0" layoutY="84.0" prefHeight="206.0" prefWidth="368.0" />
+      <Text layoutX="35.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Su saldo:" wrappingWidth="87.5615234375">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="botonPagar" layoutX="355.0" layoutY="324.0" mnemonicParsing="false" text="Pagar Pedido" />
+      <Label fx:id="labelPagar" layoutX="29.0" layoutY="230.0" prefHeight="29.0" prefWidth="88.0" />
+      <Text layoutX="40.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A pagar:" wrappingWidth="78.1328125">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
